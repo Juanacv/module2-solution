@@ -43,12 +43,12 @@
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6" ng-controller='AlreadyBoughtController as alreadyBuy'>
+    <div class="col-md-6" ng-controller='AlreadyBoughtController as alreadyBought'>
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in alreadyBuy.boughtitems">Bought {{ item.quantity }} {{ item.name }}</li>
+       <li ng-repeat="item in alreadyBought.boughtitems">Bought {{ item.quantity }} {{ item.name }}</li>
      </ul>
-     <div class="emptyMessage" ng-if="!alreadyBuy.boughtitems.length">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="!alreadyBought.boughtitems.length">Nothing bought yet.</div>
     </div>
   </div>
 </div>

@@ -40,9 +40,9 @@ function ToBuyController(ShoppingListCheckOffService) {
 //Second controller shows items bought
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
-  var alreadyBuy = this;
+  var alreadyBought = this;
 
-  alreadyBuy.boughtitems = ShoppingListCheckOffService.getBoughtItems();
+  alreadyBought.boughtitems = ShoppingListCheckOffService.getBoughtItems();
 }
 
 // ShoppingListCheckOffService, shares data between controllers
