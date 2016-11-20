@@ -1,6 +1,6 @@
 (function () {
 'use strict';
-
+//Initial Shopping list
 var shoppingList = [
   {
     name: "Milk",
@@ -25,7 +25,7 @@ angular.module('ShoppingListCheckOffApp', [])
 .controller('AlreadyBoughtController',AlreadyBoughtController)
 .provider('ShoppingListCheckOffService', ShoppingListCheckOffServiceProvider);
 
-
+//First controller adds button behaviour
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
   var toBuy = this;
@@ -37,6 +37,7 @@ function ToBuyController(ShoppingListCheckOffService) {
   };
 }
 
+//Second controller shows items bought
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
   var alreadyBuy = this;
@@ -44,11 +45,11 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
   alreadyBuy.boughtitems = ShoppingListCheckOffService.getBoughtItems();
 }
 
-// ShoppingListCheckOffService
+// ShoppingListCheckOffService, shares data between controllers
 function ShoppingListCheckOffService() {
   var service = this;
 
-  // List of shopping items
+  // 2 Lists: buy items and bought items
   var buy = shoppingList;
   var bought = [];
   service.buyItem = function (itemIndex) {
@@ -57,16 +58,18 @@ function ShoppingListCheckOffService() {
       bought.push(item);
   };
 
+//Retunrs buy array
   service.getBuyItems = function () {
     return buy;
   };
 
+//Retunrs bought array
   service.getBoughtItems = function () {
     return bought;
   };
 }
 
-
+//Provides ShoppingListCheckOffService object
 function ShoppingListCheckOffServiceProvider() {
   var provider = this;
 
